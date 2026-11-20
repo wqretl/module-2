@@ -19,7 +19,7 @@ public class PipeDelimitedOrderSource implements OrderSource {
             while ((line = bufferedReader.readLine())!=null){
 
                 String[] lineArray = line.split("\\|",-1);
-                LocalDateTime dateTime = LocalDateTime.parse(lineArray[0], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                LocalDateTime dateTime = LocalDateTime.parse(lineArray[0]);
                 String companyName = lineArray[1];
                 int amountKg = Integer.parseInt(lineArray[2]);
 
@@ -30,7 +30,7 @@ public class PipeDelimitedOrderSource implements OrderSource {
 
             }
         } catch (IOException e) {
-            System.out.println("Ошибка чтения файла");
+            System.out.println("Ошибка чтения файла ");
         }
             return orders;
     }

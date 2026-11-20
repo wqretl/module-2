@@ -23,7 +23,7 @@ public class HashDelimitedOrderSource implements OrderSource {
 
             while ((line = bufferedReader.readLine())!=null){
                 String[] orderLine = line.split("#", -1);
-                LocalDateTime dateTime = LocalDateTime.parse(orderLine[0], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                LocalDateTime dateTime = LocalDateTime.parse(orderLine[0]);
                 String companyName = orderLine[1];
                 int amountKg = Integer.parseInt(orderLine[2]);
 
